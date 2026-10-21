@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An animated, beginner-friendly visual guide to hosting a website with Apache HTTPD on AWS EC2.">
+  <title>Apache Server Visual — Build with Mayur</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Apache Server Visual home"><span class="brand-mark">AV</span><span>Apache Server <b>Visual</b><small>LEARN BY WATCHING · #BuildWithMayur</small></span></a>
+    <div class="top-actions"><span class="story-tag">Ravi’s online shop</span><button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch color theme">☼ <span>Light mode</span></button></div>
+  </header>
+  <main id="top" class="app-shell">
+    <aside class="sidebar" aria-label="Tutorial steps">
+      <div class="side-heading"><div><p class="eyebrow">INTERACTIVE LAB</p><h1>Build the shop</h1></div><span class="step-count" id="stepCount">01 / 10</span></div>
+      <p class="side-intro">Follow Ravi as he opens his shop on the cloud. Select any step to explore it.</p>
+      <nav id="stepNav" class="step-nav" aria-label="Choose a step"></nav>
+      <div class="side-footer"><span class="live-dot"></span> <span id="progressLabel">Step 1 of 10</span><div class="progress-track"><span id="progressBar"></span></div></div>
+    </aside>
+    <section class="workspace" aria-label="Apache visual lesson">
+      <div class="toolbar">
+        <div class="toolbar-copy"><span class="eyebrow">AWS EC2 · AMAZON LINUX 2023 · HTTPD</span><h2 id="workspaceTitle">A shop in the cloud</h2><p class="toolbar-subtitle">From an empty cloud server to a live website — one animated step at a time.</p></div>
+        <div class="controls"><button id="resetBtn" class="control-btn subtle" type="button">↺ Reset</button><button id="autoBtn" class="control-btn play" type="button" aria-pressed="false"><span class="play-symbol" aria-hidden="true">▶</span> <span id="autoBtnLabel">Auto-play</span><span class="autoplay-progress" aria-hidden="true"><span></span></span></button></div>
+      </div>
+      <div class="diagram-card">
+        <div class="diagram-topline"><span><i class="status-dot"></i> LIVE ARCHITECTURE MAP</span><span class="diagram-hint">Follow the moving packets <span class="keycap">SPACE</span> play/pause</span></div>
+        <div class="diagram-scroll" tabindex="0" aria-label="Scrollable architecture diagram">
+          <svg id="architecture" viewBox="0 0 1100 620" role="img" aria-labelledby="svgTitle svgDesc" xmlns="http://www.w3.org/2000/svg">
+            <title id="svgTitle">Apache HTTPD on AWS EC2 architecture</title><desc id="svgDesc">An animated diagram of a visitor connecting through the internet to an AWS EC2 instance and Apache web server.</desc>
+            <defs>
+              <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#47607d" opacity=".32"/></pattern>
+              <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173f69"/><stop offset="1" stop-color="#102b4b"/></linearGradient>
+              <linearGradient id="ec2Grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e655f"/><stop offset="1" stop-color="#123f4c"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#59a9ff"/></marker>
+              <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#ffc66d"/></marker>
+              <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#58e0a2"/></marker>
+              <g id="envelope"><rect width="30" height="21" rx="4" fill="#ffc66d" stroke="#fff0c9" stroke-width="1.4"/><path d="M2 3 L15 13 L28 3" fill="none" stroke="#704515" stroke-width="2"/></g>
+              <g id="document"><path d="M0 0 H19 L27 8 V32 H0Z" fill="#b6a1ff" stroke="#e6ddff" stroke-width="1.3"/><path d="M19 0 V8 H27 M5 15 H21 M5 21 H21 M5 27 H17" fill="none" stroke="#46387d" stroke-width="1.5"/></g>
+              <g id="check"><circle r="14" fill="#58e0a2" stroke="#d7ffed" stroke-width="1.5"/><path d="M-7 0 L-2 5 L8 -6" fill="none" stroke="#073e2c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+              <g id="package"><rect width="27" height="25" rx="3" fill="#ffc66d" stroke="#fff0c9"/><path d="M1 7 L13.5 13 L26 7 M13.5 13 V24 M1 7 L7 1 L20 1 L26 7" fill="none" stroke="#704515" stroke-width="1.5"/></g>
+              <g id="lock"><rect x="0" y="11" width="25" height="19" rx="4" fill="#6ab8ff"/><path d="M5 11 V7 A7.5 7.5 0 0 1 20 7 V11" fill="none" stroke="#b9e0ff" stroke-width="3"/><circle cx="12.5" cy="20" r="2" fill="#102a48"/></g>
+              <g id="cross"><circle r="13" fill="#ff6e78" stroke="#ffd9dc" stroke-width="1.5"/><path d="M-5 -5 L5 5 M5 -5 L-5 5" stroke="#5d111b" stroke-width="3" stroke-linecap="round"/></g>
+              <g id="glass"><circle cx="-3" cy="-3" r="9" fill="none" stroke="#a8d7ff" stroke-width="3"/><path d="M4 4 L12 12" stroke="#a8d7ff" stroke-width="4" stroke-linecap="round"/></g>
+            </defs>
+            <rect width="1100" height="620" rx="18" fill="#071426"/><rect width="1100" height="620" rx="18" fill="url(#dots)"/>
+            <g id="baseScene">
+              <rect x="32" y="36" width="1036" height="548" rx="22" fill="none" stroke="#4a83ba" stroke-dasharray="7 7" stroke-width="1.5" opacity=".35"/>
+              <text x="55" y="67" class="svg-kicker">AWS · CLOUD CITY</text>
+              <g id="awsCloud" class="scene-node" data-from="1"><rect x="55" y="91" width="990" height="430" rx="24" fill="url(#cloudGrad)" stroke="#397fc1" stroke-width="2"/><text x="82" y="124" class="svg-label">AWS Cloud</text><text x="82" y="145" class="svg-small">The city where Ravi rents computing space</text></g>
+              <g id="vpc" class="scene-node" data-from="1"><rect x="88" y="164" width="924" height="324" rx="18" fill="#102541" stroke="#4f8ed1" stroke-dasharray="8 6" stroke-width="1.8"/><text x="110" y="191" class="svg-label">VPC · Private network boundary</text></g>
+              <g id="igw" class="scene-node" data-from="1"><rect x="126" y="222" width="154" height="86" rx="13" fill="#153f69" stroke="#59a9ff" stroke-width="1.7"/><circle cx="155" cy="250" r="13" fill="none" stroke="#87c6ff" stroke-width="2"/><path d="M143 250 H167 M155 238 V262" stroke="#87c6ff" stroke-width="2"/><text x="176" y="249" class="svg-label">Internet</text><text x="176" y="267" class="svg-label">Gateway</text><text x="144" y="292" class="svg-tiny">Main network entrance</text></g>
+              <g id="subnet" class="scene-node" data-from="1"><rect x="316" y="210" width="660" height="246" rx="17" fill="#12324a" stroke="#4ba8a0" stroke-width="1.8"/><text x="338" y="237" class="svg-label">Public Subnet</text><text x="338" y="255" class="svg-tiny">Route table sends internet traffic through the IGW</text></g>
+              <g id="ec2" class="scene-node" data-from="1"><rect x="566" y="279" width="370" height="150" rx="15" fill="url(#ec2Grad)" stroke="#4ce0c1" stroke-width="2"/><rect x="586" y="300" width="42" height="42" rx="9" fill="#0a302f" stroke="#4ce0c1"/><path d="M597 311 H617 M597 321 H617 M597 331 H617" stroke="#77f2da" stroke-width="2"/><text x="642" y="309" class="svg-label">EC2 instance</text><text x="642" y="330" class="svg-small">Amazon Linux 2023</text><text x="586" y="368" class="svg-small">Public IPv4: <tspan class="svg-ip">PUBLIC-IP</tspan></text><text x="586" y="394" class="svg-small">Port 80 · HTTP entrance</text><rect x="586" y="405" width="327" height="13" rx="6" fill="#0b302f"/><rect id="serverHealth" x="586" y="405" width="205" height="13" rx="6" fill="#58e0a2"/></g>
+              <g id="sg" class="scene-node" data-from="6"><rect x="480" y="278" width="66" height="151" rx="10" fill="#213d5d" stroke="#8dc8ff" stroke-width="1.6"/><use href="#lock" x="500" y="291"/><text x="513" y="342" class="svg-tiny" text-anchor="middle">SECURITY</text><text x="513" y="355" class="svg-tiny" text-anchor="middle">GROUP</text><text x="513" y="380" class="svg-tiny" text-anchor="middle">80 ✓</text><text x="513" y="396" class="svg-tiny" text-anchor="middle">22 🔒</text></g>
+              <g id="apache" class="scene-node" data-from="3"><rect x="678" y="444" width="236" height="62" rx="12" fill="#3c2b68" stroke="#b6a1ff" stroke-width="1.8"/><circle cx="704" cy="475" r="12" fill="#b6a1ff"/><path d="M697 475 H711 M704 468 V482" stroke="#332254" stroke-width="2"/><text x="725" y="469" class="svg-label">Apache HTTPD</text><text x="725" y="489" class="svg-small">Receptionist · listening :80</text></g>
+              <g id="docShelf" class="scene-node" data-from="5"><rect x="340" y="382" width="112" height="58" rx="9" fill="#26385a" stroke="#b6a1ff" stroke-width="1.5"/><use href="#document" x="350" y="394" transform="scale(.8) translate(87 99)" opacity="0"/><path d="M354 398 H438 M354 426 H438" stroke="#b6a1ff" stroke-width="2"/><text x="396" y="402" class="svg-tiny" text-anchor="middle">DocumentRoot</text><text x="396" y="418" class="svg-small" text-anchor="middle">/var/www/html/</text><text x="396" y="434" class="svg-tiny" text-anchor="middle">index.html</text></g>
+              <g id="visitor" class="scene-node" data-from="7"><rect x="110" y="386" width="166" height="90" rx="13" fill="#47351e" stroke="#ffc66d" stroke-width="1.7"/><circle cx="139" cy="412" r="10" fill="#ffc66d"/><path d="M122 443 Q123 424 139 424 Q155 424 156 443" fill="#ffc66d"/><text x="169" y="410" class="svg-label">Visitor</text><text x="169" y="430" class="svg-small">Web browser</text><text x="126" y="460" class="svg-tiny">http://PUBLIC-IP</text></g>
+              <path id="pathRequest" d="M276 414 C310 414 292 265 316 265 L480 265 L480 320 L566 320" class="route request-route" marker-end="url(#arrowGold)"/>
+              <path id="pathResponse" d="M566 350 L480 350 L480 286 L316 286 C292 286 310 450 276 450" class="route response-route" marker-end="url(#arrowGreen)"/>
+              <path id="pathFile" d="M566 385 C520 385 500 410 452 410 L452 412" class="route file-route" marker-end="url(#arrowBlue)"/>
+              <path id="pathInstall" d="M310 235 C400 205 520 225 650 455" class="route install-route" marker-end="url(#arrowGold)"/>
+              <text x="330" y="302" class="svg-tiny">HTTP request →</text><text x="326" y="466" class="svg-tiny">← HTTP response</text>
+              <g id="movingPackets"><use href="#package" id="installPacket" x="0" y="0"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#pathInstall"/></animateMotion></use><use href="#envelope" id="requestPacket" x="0" y="0"><animateMotion id="requestMotion" dur="2.8s" repeatCount="indefinite" rotate="auto"><mpath href="#pathRequest"/></animateMotion></use><use href="#check" id="responsePacket" x="0" y="0"><animateMotion id="responseMotion" dur="3.2s" repeatCount="indefinite" rotate="auto"><mpath href="#pathResponse"/></animateMotion></use><use href="#document" id="filePacket" x="0" y="0"><animateMotion id="fileMotion" dur="2.2s" repeatCount="indefinite" rotate="auto"><mpath href="#pathFile"/></animateMotion></use></g>
+              <g id="blockPacket" class="scene-node" data-from="9"><use href="#cross" x="305" y="360"/><text x="326" y="364" class="svg-tiny" fill="#ff9ca3">Blocked: port/rule check</text></g>
+              <g id="troublePacket" class="scene-node" data-from="9"><use href="#glass" x="0" y="0"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#pathRequest"/></animateMotion></use></g>
+              <g id="stepOverlay"><rect x="785" y="110" width="222" height="69" rx="12" fill="#0a1b30" stroke="#426586"/><text id="overlayNumber" x="806" y="135" class="svg-kicker">STEP 01</text><text id="overlayTitle" x="806" y="158" class="svg-label">Cloud city</text></g>
+              <text x="60" y="552" class="svg-tiny">Illustrative architecture · Replace PUBLIC-IP with your instance’s actual public IPv4 address</text>
+              <text x="60" y="572" class="svg-tiny">#BuildWithMayur</text>
+            </g>
+          </svg>
+        </div>
+        <div class="legend" aria-label="Moving object legend"><span><i class="legend-icon request">✉</i> HTTP request</span><span><i class="legend-icon doc">▤</i> HTML document</span><span><i class="legend-icon success">✓</i> HTTP 200 response</span><span><i class="legend-icon pkg">▣</i> Install package</span><span><i class="legend-icon lock">▣</i> Security filter</span><span><i class="legend-icon blocked">×</i> Blocked traffic</span><span><i class="legend-icon glass">⌕</i> Troubleshooting</span></div>
+      </div>
+      <article class="lesson-card" aria-live="polite"><div class="lesson-heading"><div><p class="eyebrow" id="lessonEyebrow">STEP 01 · FOUNDATIONS</p><h2 id="lessonTitle">AWS cloud and EC2</h2></div><span class="analogy-pill" id="analogyPill">Cloud city</span></div><div class="lesson-grid"><section class="lesson-section plain"><h3><span>01</span> In Plain Words</h3><p id="plainText"></p></section><section class="lesson-section technical"><h3><span>02</span> Technical Explanation</h3><p id="technicalText"></p></section><section class="lesson-section commands"><h3><span>03</span> Commands</h3><pre><code id="commandText"></code></pre><button id="copyBtn" class="copy-btn" type="button">▢ Copy commands</button></section><section class="lesson-section watch"><h3><span>04</span> Watch the Picture</h3><p id="watchText"></p><div class="watch-track"><span id="watchDot">●</span><span id="watchLabel">Cloud infrastructure appears</span></div></section></div><div class="lesson-bottom"><p id="safetyNote">Security tip: allow only the network traffic you need.</p><div class="lesson-nav"><button id="prevBtn" class="control-btn subtle" type="button">← Previous</button><button id="nextBtn" class="control-btn primary" type="button">Next step →</button></div></div></article>
+      <footer class="page-footer"><span>Built for curious cloud learners.</span><span>Apache Server Visual <b>· #BuildWithMayur</b></span></footer>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
